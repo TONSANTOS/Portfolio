@@ -38,7 +38,7 @@ export function Hero() {
                 <motion.a
                     download
                     variants={childrenVariants}
-                    href="/public/resume/JARLOTTON_SANTOS_currículo.pdf"
+                    href="../assets/resume/JARLOTTON_SANTOS_currículo.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-white rounded-full p-4 text-sm text-stone-800 mb-10 md:mb-10"
