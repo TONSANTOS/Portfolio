@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+import resumePdf from '../assets/resume/JARLOTTON_SANTOS_currículo.pdf';
+
 // import tonImg from "../assets/ton.jpg";
 // import tonImg from "../assets/ton02.jpg";
 import tonImg from "../assets/ton03.jpg";
@@ -14,6 +16,16 @@ export function Hero() {
     const { t } = useTranslation();
 
     const hero = t('HERO', { returnObjects: true });
+
+    const handleDownload = () => {
+        const link = document.createElement('a');
+
+        link.href = resumePdf;
+        link.download = 'JARLOTTON_SANTOS.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     return (
         <section className="flex min-h-screen flex-wrap items-center">
@@ -35,16 +47,13 @@ export function Hero() {
                     {hero.description}
                 </p>
 
-                <motion.a
-                    download
+                <motion.button
                     variants={childrenVariants}
-                    href="../assets/resume/JARLOTTON_SANTOS_currículo.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="bg-white rounded-full p-4 text-sm text-stone-800 mb-10 md:mb-10"
+                    onClick={handleDownload}
                 >
                     {hero.downloadResumeButtonText}
-                </motion.a>
+                </motion.button>
             </motion.div>
 
             <motion.div
