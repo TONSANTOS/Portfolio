@@ -11,6 +11,7 @@ import logo from "../assets/logo.png";
 
 export function NavBar() {
     const languageRef = useRef(null);
+    const mobileLanguageRef = useRef(null); 
 
     const { isDarkMode } = useTheme();
     const { t, i18n } = useTranslation();
@@ -26,7 +27,7 @@ export function NavBar() {
     const toggleLanguageMenu = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        
+
         setIsLanguageOpen(!isLanguageOpen);
     };
 
@@ -35,6 +36,7 @@ export function NavBar() {
         e.stopPropagation();
 
         i18n.changeLanguage(lng);
+
         setIsLanguageOpen(false);
 
         localStorage.setItem("userLanguage", lng);
@@ -60,7 +62,10 @@ export function NavBar() {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (languageRef.current && !languageRef.current.contains(event.target)) {
+            if (
+                languageRef.current && !languageRef.current.contains(event.target) &&
+                mobileLanguageRef.current && !mobileLanguageRef.current.contains(event.target)
+            ) {
                 setIsLanguageOpen(false);
             }
         };
@@ -119,7 +124,7 @@ export function NavBar() {
 
                         <div className="flex items-center gap-2 mr-2">
                             {/* Botão de Idioma (Mobile) */}
-                            <div className="relative" ref={languageRef}>
+                            <div className="relative" ref={mobileLanguageRef}>
                                 <button
                                     onClick={toggleLanguageMenu}
                                     className={`p-2 rounded-full ${isDarkMode ? "text-white hover:bg-gray-700" : "text-gray-800 hover:bg-gray-200"} transition-colors`}
@@ -135,6 +140,7 @@ export function NavBar() {
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.2 }}
                                         className={`absolute right-0 mt-2 w-32 rounded-lg py-1 z-50 ${isDarkMode ? "bg-gray-800 border border-gray-700" : "bg-white border border-gray-200"} shadow-xl`}
+                                        onClick={(e) => e.stopPropagation()}
                                     >
                                         <button
                                             onClick={(e) => changeLanguage('pt', e)}
@@ -143,6 +149,7 @@ export function NavBar() {
                                         >
                                             Português (BR)
                                         </button>
+
                                         <button
                                             onClick={(e) => changeLanguage('en', e)}
                                             className={`w-full px-4 py-2 text-left 
@@ -184,7 +191,7 @@ export function NavBar() {
                     )}
                 </div>
 
-                {/* Botão de Idioma Flutuante (Desktop) */}
+                {/* Botão de Idioma (Desktop) */}
                 <div className="fixed right-4 top-4 z-50 hidden lg:block" ref={languageRef}>
                     <motion.button
                         onClick={toggleLanguageMenu}
@@ -208,6 +215,7 @@ export function NavBar() {
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.2 }}
                             className={`absolute right-0 mt-2 w-32 rounded-lg py-1 shadow-xl ${isDarkMode ? "bg-gray-800 border border-gray-700" : "bg-white border border-gray-200"}`}
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <button
                                 onClick={(e) => changeLanguage('pt', e)}
@@ -216,6 +224,7 @@ export function NavBar() {
                             >
                                 Português (BR)
                             </button>
+
                             <button
                                 onClick={(e) => changeLanguage('en', e)}
                                 className={`w-full px-4 py-2 text-left 
