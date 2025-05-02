@@ -11,22 +11,32 @@ export function Hero() {
         visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
     }
 
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const hero = t('HERO', { returnObjects: true });
 
     const [typedName, setTypedName] = useState("");
     const [typedGreet, setTypedGreet] = useState("");
     const [typedDescription, setTypedDescription] = useState("");
+    const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        
+
         link.href = resumePdf;
         link.download = 'JARLOTTON_SANTOS.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     };
+
+    useEffect(() => {
+        if (i18n.language !== currentLanguage) {
+            setTypedName("");
+            setTypedGreet("");
+            setTypedDescription("");
+            setCurrentLanguage(i18n.language);
+        }
+    }, [i18n.language, currentLanguage]);
 
     useEffect(() => {
         if (typedName.length < hero.name.length) {
@@ -46,7 +56,7 @@ export function Hero() {
 
             return () => clearTimeout(timeout);
         }
-    }, [typedGreet, hero.greet, typedName.length, hero.name.length]);
+    }, [typedGreet, typedName.length, hero.greet]);
 
     useEffect(() => {
         if (typedGreet.length === hero.greet.length && typedDescription.length < hero.description.length) {
@@ -56,7 +66,7 @@ export function Hero() {
 
             return () => clearTimeout(timeout);
         }
-    }, [typedDescription, hero.description, typedGreet.length, hero.greet.length]);
+    }, [typedDescription, typedGreet.length, hero.description]);
 
     return (
         <section className="flex min-h-screen flex-wrap items-center">
