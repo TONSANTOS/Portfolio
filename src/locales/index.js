@@ -42,7 +42,7 @@ export const resources = {
             ],
             HERO: {
                 name: "TON SANTOS",
-                greet: "Olá! 👋🏻",
+                greet: "Olá!",
                 description:
                     "Sou um desenvolvedor frontend apaixonado por criar interfaces de usuário bonitas e funcionais. Adoro transformar ideias em experiências web envolventes e intuitivas.",
                 downloadResumeButtonText: "Baixar currículo"

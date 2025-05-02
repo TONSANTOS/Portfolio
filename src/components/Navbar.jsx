@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { FiGlobe } from "react-icons/fi";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 import { useTheme } from "../hooks/useTheme";
@@ -11,7 +11,7 @@ import logo from "../assets/logo.png";
 
 export function NavBar() {
     const languageRef = useRef(null);
-    const mobileLanguageRef = useRef(null); 
+    const mobileLanguageRef = useRef(null);
 
     const { isDarkMode } = useTheme();
     const { t, i18n } = useTranslation();
@@ -44,20 +44,23 @@ export function NavBar() {
 
     const handleLinkClick = (e, href) => {
         e.preventDefault();
-        const targetElement = document.querySelector(href);
-
-        if (targetElement) {
-            const offset = -85;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY + offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth',
-            });
-        }
 
         setIsMobileMenuOpen(false);
+
+        setTimeout(() => {
+            const targetElement = document.querySelector(href);
+
+            if (targetElement) {
+                const offset = -85;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY + offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 350);
     };
 
     useEffect(() => {
@@ -84,10 +87,10 @@ export function NavBar() {
 
     return (
         <div className="">
-            <nav className="fixed left-0 right-0 top-4 z-50">
+            <nav className="fixed left-0 right-0 top-0 z-50">
                 {/* Desktop Menu */}
-                <div className={`mx-auto hidden max-w-4xl items-center justify-center rounded-lg border py-3 backdrop-blur-lg lg:flex 
-                        ${isDarkMode ? "border-stone-50/30 bg-black/20" : "border-gray-400/30 bg-gradient-to-br from-gray-300/70 to-gray-400/70 shadow-[0_4px_20px_rgba(0,0,0,0.08)]"}`}>
+                <div className={`mx-auto hidden max-w-4xl items-center justify-center rounded-b-lg border py-3 backdrop-blur-lg lg:flex 
+                    ${isDarkMode ? "border-stone-50/30 bg-black/20" : "border-gray-400/30 bg-gradient-to-br from-gray-300/70 to-gray-400/70 shadow-[0_4px_20px_rgba(0,0,0,0.08)]"}`}>
 
                     <div className="">
                         <a href="#">
@@ -113,7 +116,7 @@ export function NavBar() {
                 </div>
 
                 {/* Mobile Menu */}
-                <div className={`rounded-lg lg:hidden ${isDarkMode ? "bg-black/20 backdrop-blur-md" : "bg-gradient-to-br from-gray-300/70 to-gray-400/70 backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.06)]"}`}>
+                <div className={`lg:hidden ${isDarkMode ? "bg-black/20 backdrop-blur-md" : "bg-gradient-to-br from-gray-300/70 to-gray-400/70 backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.06)]"}`}>
                     <div className="flex items-center justify-between">
 
                         <div>
@@ -174,25 +177,44 @@ export function NavBar() {
                         </div>
                     </div>
 
-                    {isMobileMenuOpen && (
-                        <ul className={`ml-4 mt-4 flex flex-col gap-4 pb-4 ${isDarkMode ? "bg-black/20" : "bg-gray-400/50"}`}>
-                            {t('NAVIGATION_LINKS', { returnObjects: true }).map((item, index) => (
-                                <li key={index}>
-                                    <a
-                                        href={item.href}
-                                        className="block w-full text-lg"
-                                        onClick={(e) => handleLinkClick(e, item.href)}
-                                    >
-                                        {item.label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                    <AnimatePresence>
+                        {isMobileMenuOpen && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3, type: "spring" }}
+                                className={`overflow-hidden ${isDarkMode ? "border-stone-50/30 bg-black/20" : "border-gray-400/30 bg-gradient-to-br from-gray-300/70 to-gray-400/70 shadow-[0_4px_20px_rgba(0,0,0,0.08)]"}`}
+                                style={{
+                                    backdropFilter: 'blur(16px)',
+                                    WebkitBackdropFilter: 'blur(16px)'
+                                }}
+                            >
+                                <ul className="ml-4 mt-4 flex flex-col gap-4 pb-4">
+                                    {t('NAVIGATION_LINKS', { returnObjects: true }).map((item, index) => (
+                                        <motion.li
+                                            key={index}
+                                            initial={{ x: -20, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            transition={{ delay: index * 0.1, type: "spring" }}
+                                        >
+                                            <a
+                                                href={item.href}
+                                                className="block w-full text-lg"
+                                                onClick={(e) => handleLinkClick(e, item.href)}
+                                            >
+                                                {item.label}
+                                            </a>
+                                        </motion.li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
 
                 {/* Botão de Idioma (Desktop) */}
-                <div className="fixed right-4 top-4 z-50 hidden lg:block" ref={languageRef}>
+                <div className="fixed right-4 top-3 z-50 hidden lg:block" ref={languageRef}>
                     <motion.button
                         onClick={toggleLanguageMenu}
                         whileHover={{ scale: 1.05 }}

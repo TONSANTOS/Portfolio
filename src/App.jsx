@@ -69,7 +69,7 @@ export function App() {
         <NavBar />
         <Projects />
         <Bio />
-        <Skills />
+        <Skills type={2} />
         <WorkExperience />
         <Education />
         <Certifications />

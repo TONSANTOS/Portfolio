@@ -17,11 +17,33 @@ export function Certifications() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
 
     const titles = t('TITLES', { returnObjects: true });
     const credentialButton = t('DISPLAY_CREDENTIAL_BUTTON', { returnObjects: true });
 
     const cardsToShow = isMobile ? 1 : 2;
+
+    const handleTouchStart = (e) => {
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStart - touchEnd > 50) {
+            // Swipe para a esquerda
+            setCurrentIndex((prev) => (prev + 1) % CERTIFICATIONS.length);
+        }
+
+        if (touchStart - touchEnd < -50) {
+            // Swipe para a direita
+            setCurrentIndex((prev) => (prev - 1 + CERTIFICATIONS.length) % CERTIFICATIONS.length);
+        }
+    };
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -35,14 +57,14 @@ export function Certifications() {
 
     return (
         <section className="pt-16 md:pt-20 px-4" id="certifications">
-                <motion.h2
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-8 text-center text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white"
-                >
-                    {titles.certifications}
-                </motion.h2>
+            <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="mb-8 text-center text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white"
+            >
+                {titles.certifications}
+            </motion.h2>
 
             <div className="relative">
                 <div className="flex justify-center gap-2 mb-6">
@@ -74,6 +96,9 @@ export function Certifications() {
                                 transition={{ duration: 0.5 }}
                                 onMouseEnter={() => setIsPaused(true)}
                                 onMouseLeave={() => setIsPaused(false)}
+                                onTouchStart={handleTouchStart}
+                                onTouchMove={handleTouchMove}
+                                onTouchEnd={handleTouchEnd}
                             >
                                 <div className="relative h-72 sm:h-80 overflow-hidden rounded-2xl">
                                     <div className={`absolute inset-0 ${t('CERTIFICATIONS', { returnObjects: true })[currentIndex].gradient}`} />
