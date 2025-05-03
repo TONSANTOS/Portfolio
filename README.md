@@ -57,24 +57,24 @@
 
     🎥 Vídeo Demonstrativo
     
-    ![](/public/video/2025-04-21-00-28-24.gif)
+    ![](/public/video/2025-05-03-12-44-02.gif)
 
     🌞 Light Mode
 
-    ![](/public/github-imgs/Captura%20de%20tela%202025-04-21%20003252.png)
+    ![](/public/github-imgs/Captura%20de%20tela%202025-05-03%20123534.png)
 
     🌚 Dark Mode
 
-    ![](/public/github-imgs/Captura%20de%20tela%202025-04-21%20022313.png)
+    ![](/public/github-imgs/Captura%20de%20tela%202025-05-03%20124036.png)
 
     📱 Modo Mobile Otimizado
 
-    ![](/public/github-imgs/Captura%20de%20tela%202025-04-21%20022354.png)
+    ![](/public/github-imgs/Captura%20de%20tela%202025-05-03%20123930.png)
 
     <br />
 
 
-🔗 Acesse o projeto online: https://tonsantos-tonsantos-projects.vercel.app/
+🔗 Acesse o projeto online: https://santoston.vercel.app/#
 
 #### **🌟 Dê uma estrela no repositório se gostou! ⭐**
 
