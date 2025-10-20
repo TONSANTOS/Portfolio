@@ -165,7 +165,19 @@ export const resources = {
                     classNameIcon: "text-4xl text-yellow-400 lg:text-5xl",
                     name: "JavaScript",
                     experience: "4 anos",
-                }
+                },
+                 {
+                    icon: "Redux",
+                    classNameIcon: "text-4xl text-purple-600 lg:text-5xl",
+                    name: "Redux",
+                    experience: "4 anos"
+                },
+                {
+                    icon: "Zustand",
+                    classNameIcon: "text-4xl text-amber-700 lg:text-5xl",
+                    name: "Zustand",
+                    experience: "1 ano"
+                },
             ],
             TOOLS: [
                 {
@@ -468,7 +480,19 @@ export const resources = {
                     classNameIcon: "text-4xl text-yellow-400 lg:text-5xl",
                     name: "JavaScript",
                     experience: "4 years",
-                }
+                },
+                {
+                    icon: "Redux",
+                    classNameIcon: "text-4xl text-purple-600 lg:text-5xl",
+                    name: "Redux",
+                    experience: "4 years"
+                },
+                {
+                    icon: "Zustand",
+                    classNameIcon: "text-4xl text-amber-700 lg:text-5xl",
+                    name: "Zustand",
+                    experience: "1 year"
+                },
             ],
             TOOLS: [
                 {

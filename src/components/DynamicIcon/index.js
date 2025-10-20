@@ -1,6 +1,7 @@
 import { RiReactjsLine } from "react-icons/ri";
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiTailwindcss, SiTypescript, SiJavascript, SiCss3, SiHtml5, SiGit, SiNpm, SiYarn } from "react-icons/si";
+import { SiTailwindcss, SiTypescript, SiJavascript, SiCss3, SiHtml5, SiGit, SiNpm, SiYarn, SiRedux } from "react-icons/si";
+import { PiPawPrintFill } from "react-icons/pi";
 import { DiSass } from "react-icons/di";
 import { FaNodeJs } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -35,6 +36,8 @@ export const icons = {
     Github: FaGithub,
     LinkedIn: FaLinkedin,
     Instagram: FaInstagram,
+    Redux: SiRedux,
+    Zustand: PiPawPrintFill,
     projectImage1: projectImage1,
     projectImage2: projectImage2,
     projectImage3: projectImage3,
