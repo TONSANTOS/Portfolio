@@ -27,9 +27,11 @@ export const resources = {
                 bio: "Bio",
                 skills: "Habilidades",
                 work_experience: "Experiência de Trabalho",
-                education: "Educação",
+                education: "Formação & Desenvolvimento",
                 certifications: "Certificados",
                 get_in_touch: "Entre em contato",
+                formalEducation: "Formação Acadêmica",
+                continuousLearning: "Desenvolvimento Contínuo"
             },
             NAVIGATION_LINKS: [
                 { label: "Projetos", href: "#projects" },
@@ -116,12 +118,12 @@ export const resources = {
                     name: "Next.js",
                     experience: "2.5 anos",
                 },
-                {
-                    icon: "NodeJs",
-                    classNameIcon: "text-4xl text-green-600 lg:text-5xl",
-                    name: "Node.js",
-                    experience: "4 anos",
-                },
+                // {
+                //     icon: "NodeJs",
+                //     classNameIcon: "text-4xl text-green-600 lg:text-5xl",
+                //     name: "Node.js",
+                //     experience: "4 anos",
+                // },
                 {
                     icon: "PostgreSQL",
                     classNameIcon: "text-4xl text-sky-700 lg:text-5xl",
@@ -203,13 +205,13 @@ export const resources = {
                 },
             ],
             EDUCATION: [
-                {
-                    degree: "Graduação, Engenharia de Software",
-                    institution: "Estácio",
-                    duration: "Junho de 2024 - 2027",
-                    description:
-                        "Engenharia de Software ensina os fundamentos teóricos e práticos para o desenvolvimento, manutenção e gestão de sistemas de software. O curso abrange disciplinas de programação, algoritmos, banco de dados, arquitetura de software, segurança da informação e inteligência artificial. Além disso, inclui temas como engenharia de requisitos, testes de software, metodologias ágeis e gestão de projetos.",
-                },
+                // {
+                //     degree: "Graduação, Engenharia de Software",
+                //     institution: "Estácio",
+                //     duration: "Junho de 2024 - 2027",
+                //     description:
+                //         "Engenharia de Software ensina os fundamentos teóricos e práticos para o desenvolvimento, manutenção e gestão de sistemas de software. O curso abrange disciplinas de programação, algoritmos, banco de dados, arquitetura de software, segurança da informação e inteligência artificial. Além disso, inclui temas como engenharia de requisitos, testes de software, metodologias ágeis e gestão de projetos.",
+                // },
                 {
                     degree: "Front end Developer",
                     institution: "Rocketseat",
@@ -217,6 +219,18 @@ export const resources = {
                     description:
                         "Desenvolvimento de sistemas Web, utilizando ReactJS/NextJS no frontend e Node.js para o lado do servidor.",
                 },
+            ],
+            CONTINUOUS_LEARNING: [
+                {
+                    title: "Inglês - Jornada Autodidata",
+                    status: "Em andamento • Aprendizado Contínuo",
+                    description: "Desenvolvimento de habilidades em inglês através de métodos autodidatas, incluindo imersão em conteúdo, prática diária, e consumo ativo de mídia em inglês. Foco em conversação, compreensão auditiva e vocabulário técnico para desenvolvimento profissional.",
+                    tags: [
+                        "Imersão Linguística",
+                        "Prática Diária",
+                        "Consumo de Conteúdo"
+                    ]
+                }
             ],
             CERTIFICATIONS: [
                 {
@@ -316,9 +330,11 @@ export const resources = {
                 bio: "Bio",
                 skills: "Skills",
                 work_experience: "Work Experience",
-                education: "Education",
+                education: "Formation & Development",
                 certifications: "Certifications",
                 get_in_touch: "Get in touch",
+                formalEducation: "Academic Education",
+                continuousLearning: "Continuous Learning"
             },
             NAVIGATION_LINKS: [
                 { label: "Projects", href: "#projects" },
@@ -405,12 +421,12 @@ export const resources = {
                     name: "Next.js",
                     experience: "2.5 years",
                 },
-                {
-                    icon: "NodeJs",
-                    classNameIcon: "text-4xl text-green-600 lg:text-5xl",
-                    name: "Node.js",
-                    experience: "4 years",
-                },
+                // {
+                //     icon: "NodeJs",
+                //     classNameIcon: "text-4xl text-green-600 lg:text-5xl",
+                //     name: "Node.js",
+                //     experience: "4 years",
+                // },
                 {
                     icon: "PostgreSQL",
                     classNameIcon: "text-4xl text-sky-700 lg:text-5xl",
@@ -492,13 +508,13 @@ export const resources = {
                 },
             ],
             EDUCATION: [
-                {
-                    degree: "Bachelor's Degree, Software Engineering",
-                    institution: "Estácio",
-                    duration: "June 2024 - 2027",
-                    description:
-                        "Software Engineering teaches the theoretical and practical fundamentals for the development, maintenance and management of software systems. The course covers programming, algorithms, databases, software architecture, information security and artificial intelligence. Additionally, it includes topics such as requirements engineering, software testing, agile methodologies and project management.",
-                },
+                // {
+                //     degree: "Bachelor's Degree, Software Engineering",
+                //     institution: "Estácio",
+                //     duration: "June 2024 - 2027",
+                //     description:
+                //         "Software Engineering teaches the theoretical and practical fundamentals for the development, maintenance and management of software systems. The course covers programming, algorithms, databases, software architecture, information security and artificial intelligence. Additionally, it includes topics such as requirements engineering, software testing, agile methodologies and project management.",
+                // },
                 {
                     degree: "Front end Developer",
                     institution: "Rocketseat",
@@ -506,6 +522,18 @@ export const resources = {
                     description:
                         "Web systems development, using ReactJS/NextJS on the frontend and Node.js for the server side.",
                 },
+            ],
+            CONTINUOUS_LEARNING: [
+                {
+                    title: "English - Self-Taught Journey",
+                    status: "In Progress • Continuous Learning",
+                    description: "Developing English skills through self-taught methods, including content immersion, daily practice, and active consumption of English media. Focus on conversation, listening comprehension, and technical vocabulary for professional development.",
+                    tags: [
+                        "Language Immersion",
+                        "Daily Practice",
+                        "Content Consumption"
+                    ]
+                }
             ],
             CERTIFICATIONS: [
                 {
