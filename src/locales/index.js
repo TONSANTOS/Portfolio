@@ -103,7 +103,7 @@ export const resources = {
                 label: "Ver no GitHub"
             },
             BIO: [
-                "Sou um desenvolvedor front-end, imerso no mundo dinâmico das tecnologias Javascript, dominando ferramentas como ReactJS, NextJS, React Native e NodeJS. Minha jornada se estende para além do front-end, abraçando também o desenvolvimento de aplicativos móveis e back-end para a web. Estou em constante busca por desafios que me permitam aplicar minha expertise de forma criativa, visando impactar positivamente o mercado de tecnologia e contribuir para o avanço da indústria. Com uma paixão pelo aprendizado contínuo e uma sede insaciável por excelência técnica, estou pronto para enfrentar os desafios mais complexos e transformar ideias em realidade."
+                "Sou um desenvolvedor front-end, imerso no mundo dinâmico das tecnologias JavaScript, com foco em ReactJS, NextJS e TypeScript. Crio interfaces interativas e experiências digitais com uma abordagem mobile-first, priorizando integração com APIs REST. No dia a dia, uso Git e trabalho com metodologias ágeis como Scrum para garantir entregas constantes e alinhadas com os objetivos do time. Tenho conhecimento em Node.js, o que me permite colaborar eficazmente com equipes back-end. Estou sempre em busca de desafios que me permitam aplicar minha expertise de forma criativa e contribuir para o avanço da tecnologia."
             ],
             SKILLS: [
                 {
@@ -166,7 +166,7 @@ export const resources = {
                     name: "JavaScript",
                     experience: "4 anos",
                 },
-                 {
+                {
                     icon: "Redux",
                     classNameIcon: "text-4xl text-purple-600 lg:text-5xl",
                     name: "Redux",
@@ -418,7 +418,7 @@ export const resources = {
                 label: "View on GitHub"
             },
             BIO: [
-                "I am a front-end developer, immersed in the dynamic world of Javascript technologies, mastering tools like ReactJS, NextJS, React Native and NodeJS. My journey extends beyond front-end, also embracing mobile app development and web back-end. I am constantly looking for challenges that allow me to apply my expertise creatively, aiming to positively impact the technology market and contribute to the advancement of the industry. With a passion for continuous learning and an insatiable thirst for technical excellence, I am ready to face the most complex challenges and turn ideas into reality."
+                "I’m a front-end developer immersed in the dynamic world of JavaScript technologies, with a focus on ReactJS, NextJS, and TypeScript. I build interactive interfaces and digital experiences using a mobile-first approach, prioritizing integration with REST APIs. In my daily work, I use Git and follow agile methodologies such as Scrum to ensure consistent deliveries aligned with the team’s goals. I also have knowledge of Node.js, which allows me to collaborate effectively with back-end teams. I’m always seeking challenges that allow me to apply my expertise creatively and contribute to technological advancement."
             ],
             SKILLS: [
                 {
